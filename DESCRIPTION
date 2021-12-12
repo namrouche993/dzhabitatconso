@@ -3,7 +3,7 @@ Title: DZ HABITAT CONSOMMATIONS
 Version: 0.0.0.9000
 Authors@R: person('Mohamed Nadjib', 'AMROUCHE', email = 'namrouche993@gmail.com', role = c('cre', 'aut'))
 Description: Un tableau de bord pour piloter les données des consommations de logements
-License: What license is it under?
+License: MIT + file LICENSE
 Imports: 
     config (>= 0.3.1),
     golem (>= 0.3.1.9003),
