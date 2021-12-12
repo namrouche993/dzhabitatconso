@@ -8,7 +8,7 @@ Imports:
     config (>= 0.3.1),
     dplyr,
     geojsonio,
-    golem (>= 0.3.1.9003),
+    golem,
     grDevices,
     leaflet,
     readxl,
