@@ -13,7 +13,7 @@ Imports:
     leaflet,
     readxl,
     rmapshaper,
-    shiny (>= 1.7.1.9001),
+    shiny,
     leaflet.extras,
     leaflet.providers,
     thinkr
