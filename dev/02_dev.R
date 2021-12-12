@@ -21,6 +21,10 @@ usethis::use_package("readxl")
 usethis::use_package("grDevices")
 usethis::use_package("geojsonio")
 usethis::use_package("rmapshaper")
+usethis::use_package("leaflet")
+usethis::use_package("tidyverse",type="depends")
+
+
 
 
 
