@@ -19,7 +19,10 @@ app_ui <- function(request) {
       plotOutput("plot1"),
       leafletOutput("leaflet1"),
       textOutput("algeriawilayas"),
-      leafletOutput("leaflet_mapdz")
+      leafletOutput("leaflet_mapdz"),
+      leafletOutput("leaflet_mapdz2"),
+      leafletOutput("leaflet_mapdz3")
+
     )
   )
 }
@@ -48,4 +51,3 @@ golem_add_external_resources <- function(){
     # for example, you can add shinyalert::useShinyalert()
   )
 }
-

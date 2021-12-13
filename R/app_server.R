@@ -50,4 +50,19 @@ app_server <- function( input, output, session ) {
       addPolygons()
   })
 
+
+  output$leaflet_mapdz2<-renderLeaflet({
+    dzhabitatconso::mapdz2 %>%
+      addPolygons()
+  })
+
+
+
+  output$leaflet_mapdz3<-renderLeaflet({
+    dzhabitatconso::mapdz3 %>%
+      addPolygons()
+  })
+
+
+
 }

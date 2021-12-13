@@ -220,10 +220,23 @@ algeria@data$wilayas=unique(dco48_21$OPGI)[id_wilaya]
 mapdz=leaflet(algeria)%>%
   setView(lng = 3.03333 , lat = 28.6167, zoom = 5)%>%
   addProviderTiles("OpenStreetMap.BZH",
-                   options = leafletOptions(minZoom = 5, maxZoom = 10,dragging = TRUE))%>%   #or we can use addProviderTiles(one_providers)
+                   options = leafletOptions(minZoom = 5, maxZoom = 10,dragging = TRUE))%>%
   setMapWidgetStyle(list(background= "#ffffff"))
 
 
 usethis::use_data(mapdz,algeria, overwrite = FALSE)
 
 
+
+mapdz2=leaflet(algeria)%>%
+  setView(lng = 1.63333 , lat = 28.3667, zoom = 5)%>%
+  addProviderTiles("OpenStreetMap.BZH") %>%
+  setMapWidgetStyle(list(background= "#ffffff"))
+
+
+mapdz3=leaflet(dzhabitatconso::algeria)%>%
+  setView(lng = 1.63333 , lat = 28.3667, zoom = 5)%>%
+  addProviderTiles("OpenStreetMap.BZH") %>%
+  setMapWidgetStyle(list(background= "#ffffff"))
+
+usethis::use_data(mapdz2,mapdz3, overwrite = FALSE)
