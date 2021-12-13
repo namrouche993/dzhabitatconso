@@ -3,6 +3,10 @@ library(tidyverse)
 library(readxl)
 library(geojsonio)
 library(rmapshaper)
+library(leaflet)
+library(leaflet.extras)
+library(leaflet.providers)
+
 donnees_consomation <- read_excel(paste0(getwd(),"/data-raw/donnees_stat.xlsx"),sheet="Consommation")
 dd0=donnees_consomation
 dd0=dd0 %>% mutate(Total=`2013`+`2014`+`2015`+`2016`+`2017`+`2018`+`2019`+`2020`+`2021`)
@@ -199,6 +203,27 @@ countries <- geojsonio::geojson_read(paste0(getwd(),"/data-raw/polbnda_dza.json"
 algeria <- rmapshaper::ms_simplify(countries, keep = 0.05, keep_shapes = TRUE)
 
 
-usethis::use_data(algeria, overwrite = FALSE)
+
+id_wilaya=c(27,31,29,22,46,13,20,15,6,35,16,42,9,10,2,19,26,44,34,28,38,48,17,14,5,7,21,23,36,18,24,43,25,41,4,12,40,8,32,45,1,3,47,30,39,33,37,11)
+algeria@data$id_wilaya=id_wilaya
+algeria@data=algeria@data[1:96,]
+algeria@data=algeria@data[1:48,]
+gps=data.frame(longitude=rep(0,48),latitude=rep(0,48))
+gps=data.frame(longitude=rep(0,48),latitude=rep(0,48))
+for(i in 1:48){
+  gps[i,]=algeria@polygons[[i]]@labpt
+}
+algeria@data$longitude=gps$longitude
+algeria@data$latitude=gps$latitude
+algeria@data$wilayas=unique(dco48_21$OPGI)[id_wilaya]
+
+mapdz=leaflet(algeria)%>%
+  setView(lng = 3.03333 , lat = 28.6167, zoom = 5)%>%
+  addProviderTiles("OpenStreetMap.BZH",
+                   options = leafletOptions(minZoom = 5, maxZoom = 10,dragging = TRUE))%>%   #or we can use addProviderTiles(one_providers)
+  setMapWidgetStyle(list(background= "#ffffff"))
+
+
+usethis::use_data(mapdz,algeria, overwrite = FALSE)
 
 

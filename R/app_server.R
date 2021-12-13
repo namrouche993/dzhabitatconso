@@ -8,6 +8,7 @@
 #' @import leaflet.extras
 #' @import tidyverse
 #' @importFrom utils head
+#' @importFrom graphics barplot
 #' @noRd
 app_server <- function( input, output, session ) {
   # Your application server logic
@@ -39,4 +40,14 @@ app_server <- function( input, output, session ) {
       setMapWidgetStyle(list(background= "#ffffff")) %>%
       addPolygons()
   })
+
+  output$algeriawilayas<-renderText({
+    dzhabitatconso::algeria@data$wilayas
+  })
+
+  output$leaflet_mapdz<-renderLeaflet({
+    dzhabitatconso::mapdz %>%
+      addPolygons()
+  })
+
 }

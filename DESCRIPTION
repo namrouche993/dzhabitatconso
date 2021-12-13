@@ -6,7 +6,6 @@ Description: Un tableau de bord pour piloter les données des consommations de l
 License: MIT + file LICENSE
 Imports: 
     config (>= 0.3.1),
-    dplyr,
     geojsonio,
     golem,
     grDevices,
@@ -16,10 +15,29 @@ Imports:
     shiny,
     leaflet.extras,
     leaflet.providers,
-    thinkr
+    thinkr,
+    fresh,
+    shinythemes,
+    shinyWidgets,
+    shinycssloaders,
+    shinyBS,
+    rgdal,
+    sp,
+    highcharter,
+    excelR,
+    farver,
+    reactable,
+    shinyjs,
+    sass,
+    sparkline,
+    RColorBrewer
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Depends: 
     tidyverse,
-    R (>= 2.10)
+    R (>= 2.10),
+    dplyr
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
