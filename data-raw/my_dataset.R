@@ -159,12 +159,7 @@ dd_nonlances=donnees_nonlances %>% gather("Annee","NonLances",2:9)
 ######################################################################################################
 
 
-usethis::use_data(donnees_consomation,overwrite = FALSE)
-usethis::use_data(donnees_consomation_21,overwrite = FALSE)
-usethis::use_data(donnees_consomation48_21,overwrite = FALSE)
-usethis::use_data(donnees_encours,overwrite = FALSE)
-usethis::use_data(donnees_livraison,overwrite = FALSE)
-usethis::use_data(donnees_nonlances,overwrite = FALSE)
+
 
 
 usethis::use_data(dd48_nonlances,
@@ -217,13 +212,38 @@ algeria@data$longitude=gps$longitude
 algeria@data$latitude=gps$latitude
 algeria@data$wilayas=unique(dco48_21$OPGI)[id_wilaya]
 
-mapdz=leaflet(algeria)%>%
+mapdzz=leaflet(algeria)%>%
   setView(lng = 3.03333 , lat = 28.6167, zoom = 5)%>%
   addProviderTiles("OpenStreetMap.BZH",
                    options = leafletOptions(minZoom = 5, maxZoom = 10,dragging = TRUE))%>%   #or we can use addProviderTiles(one_providers)
   setMapWidgetStyle(list(background= "#ffffff"))
 
+donnees_consomation0=donnees_consomation
+donnees_consomation_210=donnees_consomation_21
+donnees_encours0=donnees_encours
+donnees_consomation48_210=donnees_consomation48_21
+donnees_livraison0=donnees_livraison
+donnees_nonlances0=donnees_nonlances
+algeria0=algeria
+mapdz0=mapdz
 
-usethis::use_data(mapdz,algeria, overwrite = FALSE)
+usethis::use_data(donnees_consomation0,
+                  donnees_consomation_210,
+                  donnees_encours0,
+                  donnees_consomation48_210,
+                  donnees_livraison0,
+                  donnees_nonlances0,
+                  algeria0,
+                  mapdz0
+,overwrite = FALSE)
+
+# usethis::use_data(donnees_consomation,overwrite = FALSE)
+# usethis::use_data(donnees_consomation_21,overwrite = FALSE)
+# usethis::use_data(donnees_consomation48_21,overwrite = FALSE)
+# usethis::use_data(donnees_encours,overwrite = FALSE)
+# usethis::use_data(donnees_livraison,overwrite = FALSE)
+# usethis::use_data(donnees_nonlances,overwrite = FALSE)
+# usethis::use_data(algeria, overwrite = FALSE)
+# usethis::use_data(mapdz, overwrite = FALSE)
 
 

@@ -13,11 +13,11 @@
 app_server <- function( input, output, session ) {
   # Your application server logic
   output$mtable1<-renderTable({
-    head(dzhabitatconso::donnees_consomation,2)
+    head(dzhabitatconso::donnees_consomation0,2)
   })
 
   output$m333<-renderTable({
-    head(dzhabitatconso::donnees_encours,2)
+    head(dzhabitatconso::donnees_encours0,2)
   })
 
   output$m4441<-renderTable({
@@ -42,11 +42,11 @@ app_server <- function( input, output, session ) {
   })
 
   output$algeriawilayas<-renderText({
-    dzhabitatconso::algeria@data$wilayas
+    dzhabitatconso::algeria0@data$wilayas
   })
 
   output$leaflet_mapdz<-renderLeaflet({
-    dzhabitatconso::mapdz %>%
+    dzhabitatconso::mapdz0 %>%
       addPolygons()
   })
 
