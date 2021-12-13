@@ -52,7 +52,7 @@ app_server <- function( input, output, session ) {
 
 
   output$leaflet_mapdz2<-renderLeaflet({
-    mapdz2 %>%
+    dzhabitatconso::mapdz2 %>%
       addPolygons()
   })
 
